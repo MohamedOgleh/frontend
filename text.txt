@@ -1,0 +1,40 @@
+import Image from "next/image";
+import { Label } from "../ui/label";
+import { SideBarItems as items } from "@/app/models/Items";
+import { Button } from "../ui/button";
+import Logo from "./Logo";
+
+function SideBar() {
+  return (
+    <div className="flex flex-col gap-10">
+      <Logo />
+
+      {/* customer care */}
+      <div className="flex flex-col gap-3 items-start">
+        <Label>Customer care</Label>
+        <div className="flex flex-col gap-2">
+          {items.customerCare.map((item,index) => (
+            <Button key={index}>
+              {item.leftIcon}
+              {item.title}
+            </Button>
+          ))}
+        </div>
+      </div>
+      {/* management */}
+      <div className="flex flex-col gap-3 items-start bg-slate-200 w-36">
+        <Label>Management</Label>
+        <div className="flex flex-col gap-2">
+          {items.magangement.map((item,index) => (
+            <Button key={index}>
+              {item.leftIcon}
+              {item.title}
+            </Button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default SideBar;
